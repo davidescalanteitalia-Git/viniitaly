@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" id="htmlRoot">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,24 +40,34 @@
   .hero-line { opacity: 0; animation: heroIn .9s cubic-bezier(.2,.7,.3,1) forwards; }
   .reveal { animation: fadeUp .8s ease both; animation-timeline: view(); animation-range: entry 0% cover 25%; }
   .card { background: #000000; padding: 40px 32px; }
+  .lang-switch { display: flex; gap: 10px; font-size: 12px; letter-spacing: 1px; font-weight: 600; }
+  .lang-switch button { background: none; border: none; color: #6b6b6b; cursor: pointer; padding: 4px 2px; font: inherit; letter-spacing: inherit; }
+  .lang-switch button:hover { color: #ffffff; }
+  .lang-switch button[aria-current="true"] { color: #ffffff; border-bottom: 1px solid #ffffff; }
 </style>
 </head>
 <body>
 <div class="page">
 
   <div style="background:#ffffff;color:#000000;text-align:center;padding:10px 16px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">
-    Bozza di esempio per approvazione cliente — foto segnaposto da sostituire con scatti reali
+    <span data-i18n="banner">Bozza di esempio per approvazione cliente — foto segnaposto da sostituire con scatti reali</span>
   </div>
 
   <header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:26px 32px;border-bottom:1px solid #222222;">
     <div style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:26px;letter-spacing:.5px;">Vini Italy</div>
     <nav class="hide-mobile" style="display:flex;gap:36px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;">
-      <a href="#chi-siamo">Chi siamo</a>
-      <a href="#prodotti">Prodotti</a>
-      <a href="#recensioni">Recensioni</a>
-      <a href="#contatti">Contatti</a>
+      <a href="#chi-siamo" data-i18n="nav_chi">Chi siamo</a>
+      <a href="#prodotti" data-i18n="nav_prodotti">Prodotti</a>
+      <a href="#recensioni" data-i18n="nav_recensioni">Recensioni</a>
+      <a href="#contatti" data-i18n="nav_contatti">Contatti</a>
     </nav>
     <div style="display:flex;align-items:center;gap:22px;">
+      <nav class="lang-switch" aria-label="Lingua / Language">
+        <button type="button" data-lang="it" aria-current="true">IT</button>
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="fr">FR</button>
+      </nav>
       <a href="tel:3461081465" class="hide-mobile" style="font-size:13px;letter-spacing:1px;">346 108 1465</a>
       <button aria-label="Apri menu" style="background:none;border:none;cursor:pointer;padding:4px;display:flex;flex-direction:column;gap:5px;">
         <span style="width:24px;height:2px;background:#fff;display:block;"></span>
@@ -68,46 +78,46 @@
   </header>
 
   <section style="position:relative;display:flex;align-items:center;min-height:620px;padding:90px 32px;overflow:hidden;">
-    <img src="images/fachada.jpg" alt="Facciata del negozio Vini Italy in Via Bellinzona 280, Como" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.15) contrast(1.05);">
+    <img src="images/fachada.jpg" data-i18n-alt="alt_fachada" alt="Facciata del negozio Vini Italy in Via Bellinzona 280, Como" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.15) contrast(1.05);">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg,#000 15%,rgba(0,0,0,.78) 45%,rgba(0,0,0,.35) 75%);"></div>
     <div style="position:relative;z-index:2;max-width:640px;">
-      <div class="eyebrow" style="margin-bottom:22px;">Enoteca &amp; specialità italiane · Como</div>
+      <div class="eyebrow" style="margin-bottom:22px;" data-i18n="hero_eyebrow">Enoteca &amp; specialità italiane · Como</div>
       <h1 class="hero-heading" style="font-weight:500;font-size:68px;line-height:76px;margin:0 0 36px 0;">
-        <span class="hero-line" style="display:block;animation-delay:.05s;">Vini pregiati,</span>
-        <span class="hero-line" style="display:block;animation-delay:.2s;">grappe artigianali</span>
-        <span class="hero-line" style="display:block;animation-delay:.35s;">e sapori</span>
-        <span class="hero-line" style="display:block;animation-delay:.5s;">d'Italia a Como</span>
+        <span class="hero-line" data-i18n="hero_line1" style="display:block;animation-delay:.05s;">Vini pregiati,</span>
+        <span class="hero-line" data-i18n="hero_line2" style="display:block;animation-delay:.2s;">grappe artigianali</span>
+        <span class="hero-line" data-i18n="hero_line3" style="display:block;animation-delay:.35s;">e sapori</span>
+        <span class="hero-line" data-i18n="hero_line4" style="display:block;animation-delay:.5s;">d'Italia a Como</span>
       </h1>
       <div style="display:flex;gap:16px;flex-wrap:wrap;">
-        <a href="#prodotti" class="btn btn-solid">Scopri i prodotti</a>
-        <a href="tel:3461081465" class="btn">Chiama ora</a>
+        <a href="#prodotti" class="btn btn-solid" data-i18n="hero_cta1">Scopri i prodotti</a>
+        <a href="tel:3461081465" class="btn" data-i18n="hero_cta2">Chiama ora</a>
       </div>
       <div style="margin-top:56px;display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:1px;color:#8a8a8a;">
         <span style="color:#fff;letter-spacing:2px;">★★★★★</span>
-        4.5 su Google — 19 recensioni
+        <span data-i18n="hero_rating">4.5 su Google — 19 recensioni</span>
       </div>
     </div>
   </section>
 
   <section id="chi-siamo" class="wrap reveal" style="display:flex;flex-wrap:wrap;gap:64px;padding:110px 32px;align-items:center;">
     <div style="flex:1 1 420px;min-width:0;">
-      <div class="eyebrow" style="margin-bottom:18px;">Chi siamo</div>
-      <h2 class="h2" style="margin-bottom:26px;font-size:clamp(28px,4vw,36px);">Un'enoteca di quartiere, gestita con passione</h2>
-      <p style="color:#b3b3b3;font-size:16px;margin:0 0 18px 0;">Vini Italy è la piccola vinoteca di Via Bellinzona dove Danilo accoglie i clienti con la competenza di un vero esperto di vino. Un ambiente curato, con vino sfuso ed etichette interessanti da tutta Italia, pensato sia per chi ama il vino in bottiglia sia per chi preferisce il vino alla spina.</p>
-      <p style="color:#b3b3b3;font-size:16px;margin:0;">Accanto ai vini trovate grappe artigianali, birre tedesche pluripremiate, salumi e formaggi selezionati, oltre a un piccolo angolo alimentari con prodotti d'importazione — e un comodo punto di ritiro pacchi UPS e Amazon.</p>
+      <div class="eyebrow" style="margin-bottom:18px;" data-i18n="chi_eyebrow">Chi siamo</div>
+      <h2 class="h2" style="margin-bottom:26px;font-size:clamp(28px,4vw,36px);" data-i18n="chi_h2">Un'enoteca di quartiere, gestita con passione</h2>
+      <p style="color:#b3b3b3;font-size:16px;margin:0 0 18px 0;" data-i18n="chi_p1">Vini Italy è la piccola vinoteca di Via Bellinzona dove Danilo accoglie i clienti con la competenza di un vero esperto di vino. Un ambiente curato, con vino sfuso ed etichette interessanti da tutta Italia, pensato sia per chi ama il vino in bottiglia sia per chi preferisce il vino alla spina.</p>
+      <p style="color:#b3b3b3;font-size:16px;margin:0;" data-i18n="chi_p2">Accanto ai vini trovate grappe artigianali, birre tedesche pluripremiate, salumi e formaggi selezionati, oltre a un piccolo angolo alimentari con prodotti d'importazione — e un comodo punto di ritiro pacchi UPS e Amazon.</p>
     </div>
     <div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:1px;background:#222222;border:1px solid #222222;">
       <div style="background:#000;padding:30px;display:flex;justify-content:space-between;align-items:baseline;">
         <div style="font-size:44px;font-weight:600;">4.5</div>
-        <div style="text-align:right;color:#8a8a8a;font-size:13px;letter-spacing:.5px;">media su Google<br>19 recensioni</div>
+        <div style="text-align:right;color:#8a8a8a;font-size:13px;letter-spacing:.5px;" data-i18n="stat1_label">media su Google<br>19 recensioni</div>
       </div>
       <div style="background:#000;padding:30px;display:flex;justify-content:space-between;align-items:baseline;">
         <div style="font-size:44px;font-weight:600;">35+</div>
-        <div style="text-align:right;color:#8a8a8a;font-size:13px;letter-spacing:.5px;">anni di esperienza<br>nel settore vinicolo</div>
+        <div style="text-align:right;color:#8a8a8a;font-size:13px;letter-spacing:.5px;" data-i18n="stat2_label">anni di esperienza<br>nel settore vinicolo</div>
       </div>
       <div style="background:#000;padding:30px;display:flex;justify-content:space-between;align-items:baseline;">
         <div style="font-size:44px;font-weight:600;">6/7</div>
-        <div style="text-align:right;color:#8a8a8a;font-size:13px;letter-spacing:.5px;">giorni aperti<br>lun–sab 9–19</div>
+        <div style="text-align:right;color:#8a8a8a;font-size:13px;letter-spacing:.5px;" data-i18n="stat3_label">giorni aperti<br>lun–sab 9–19</div>
       </div>
     </div>
   </section>
@@ -115,39 +125,39 @@
   <section id="prodotti" style="border-top:1px solid #222222;padding:110px 32px;">
     <div class="wrap">
       <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 64px auto;">
-        <div class="eyebrow" style="margin-bottom:18px;">Cosa trovate da noi</div>
-        <h2 class="h2">I nostri prodotti</h2>
+        <div class="eyebrow" style="margin-bottom:18px;" data-i18n="prod_eyebrow">Cosa trovate da noi</div>
+        <h2 class="h2" data-i18n="prod_h2">I nostri prodotti</h2>
       </div>
       <div class="grid-products reveal" style="border:1px solid #222222;">
         <div class="card">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" aria-hidden="true"><path d="M8 2h8l-1 7a3 3 0 0 1-2 2.83V21h5M8 2l1 7a3 3 0 0 0 2 2.83V21H6"/></svg>
-          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;">Vini in bottiglia</h3>
-          <p style="color:#8a8a8a;font-size:14px;margin:0;">Etichette selezionate da tutta Italia, per ogni gusto e occasione.</p>
+          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;" data-i18n="p1_title">Vini in bottiglia</h3>
+          <p style="color:#8a8a8a;font-size:14px;margin:0;" data-i18n="p1_desc">Etichette selezionate da tutta Italia, per ogni gusto e occasione.</p>
         </div>
         <div class="card">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M12 6V3M9 3h6"/></svg>
-          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;">Vino sfuso</h3>
-          <p style="color:#8a8a8a;font-size:14px;margin:0;">La tradizione dell'enoteca di quartiere, alla spina, al prezzo giusto.</p>
+          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;" data-i18n="p2_title">Vino sfuso</h3>
+          <p style="color:#8a8a8a;font-size:14px;margin:0;" data-i18n="p2_desc">La tradizione dell'enoteca di quartiere, alla spina, al prezzo giusto.</p>
         </div>
         <div class="card">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" aria-hidden="true"><path d="M9 2h6l1 5-2.5 2.5V20a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-10.5L8 7l1-5Z"/></svg>
-          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;">Grappe artigianali</h3>
-          <p style="color:#8a8a8a;font-size:14px;margin:0;">Distillati pregiati, scelti per i veri intenditori.</p>
+          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;" data-i18n="p3_title">Grappe artigianali</h3>
+          <p style="color:#8a8a8a;font-size:14px;margin:0;" data-i18n="p3_desc">Distillati pregiati, scelti per i veri intenditori.</p>
         </div>
         <div class="card">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" aria-hidden="true"><path d="M5 10h10v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-8Z"/><path d="M15 12h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2M7 10V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/></svg>
-          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;">Birre artigianali tedesche</h3>
-          <p style="color:#8a8a8a;font-size:14px;margin:0;">Tra cui Hell Beer, premiata 3 volte migliore birra al mondo.</p>
+          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;" data-i18n="p4_title">Birre artigianali tedesche</h3>
+          <p style="color:#8a8a8a;font-size:14px;margin:0;" data-i18n="p4_desc">Tra cui Hell Beer, premiata 3 volte migliore birra al mondo.</p>
         </div>
         <div class="card">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" aria-hidden="true"><path d="M3 10h10v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-8Z"/></svg>
-          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;">Salumi e formaggi</h3>
-          <p style="color:#8a8a8a;font-size:14px;margin:0;">Parmigiano e salumi italiani selezionati, confezionati.</p>
+          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;" data-i18n="p5_title">Salumi e formaggi</h3>
+          <p style="color:#8a8a8a;font-size:14px;margin:0;" data-i18n="p5_desc">Parmigiano e salumi italiani selezionati, confezionati.</p>
         </div>
         <div class="card">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" aria-hidden="true"><rect x="3" y="7" width="15" height="13" rx="1"/><path d="M16 11h3.4a1 1 0 0 1 .9.6L22 15v5h-6"/><circle cx="7.5" cy="20.5" r="1.5"/><circle cx="17.5" cy="20.5" r="1.5"/></svg>
-          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;">Punto ritiro UPS &amp; Amazon</h3>
-          <p style="color:#8a8a8a;font-size:14px;margin:0;">Comodo ritiro pacchi in negozio, più piccolo alimentari con prodotti anche asiatici.</p>
+          <h3 style="font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:20px 0 10px 0;" data-i18n="p6_title">Punto ritiro UPS &amp; Amazon</h3>
+          <p style="color:#8a8a8a;font-size:14px;margin:0;" data-i18n="p6_desc">Comodo ritiro pacchi in negozio, più piccolo alimentari con prodotti anche asiatici.</p>
         </div>
       </div>
     </div>
@@ -156,15 +166,15 @@
   <section style="border-top:1px solid #222222;padding:110px 32px;">
     <div class="wrap">
       <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 50px auto;">
-        <div class="eyebrow" style="margin-bottom:18px;">Il negozio</div>
-        <h2 class="h2" style="margin-bottom:14px;">Dai uno sguardo</h2>
-        <p style="color:#666;font-size:13px;margin:0;">Foto reali del negozio (dalla scheda Google) — in attesa di un servizio fotografico professionale.</p>
+        <div class="eyebrow" style="margin-bottom:18px;" data-i18n="gal_eyebrow">Il negozio</div>
+        <h2 class="h2" style="margin-bottom:14px;" data-i18n="gal_h2">Dai uno sguardo</h2>
+        <p style="color:#666;font-size:13px;margin:0;" data-i18n="gal_caption">Foto reali del negozio (dalla scheda Google) — in attesa di un servizio fotografico professionale.</p>
       </div>
       <div class="grid-gallery reveal" style="border:1px solid #222222;">
-        <img src="images/fachada.jpg" alt="Facciata del negozio Vini Italy" style="aspect-ratio:3/4;width:100%;object-fit:cover;filter:grayscale(.1);">
-        <img src="images/taps.jpg" alt="Parete degli spillatori per vino sfuso" style="aspect-ratio:3/4;width:100%;object-fit:cover;filter:grayscale(.1);">
-        <img src="images/spirits.jpg" alt="Scaffale di grappe e liquori selezionati" style="aspect-ratio:3/4;width:100%;object-fit:cover;filter:grayscale(.1);">
-        <img src="images/fridge.jpg" alt="Frigo con vini e bibite in vendita" style="aspect-ratio:3/4;width:100%;object-fit:cover;filter:grayscale(.1);">
+        <img src="images/fachada.jpg" data-i18n-alt="alt_fachada" alt="Facciata del negozio Vini Italy" style="aspect-ratio:3/4;width:100%;object-fit:cover;filter:grayscale(.1);">
+        <img src="images/taps.jpg" data-i18n-alt="alt_taps" alt="Parete degli spillatori per vino sfuso" style="aspect-ratio:3/4;width:100%;object-fit:cover;filter:grayscale(.1);">
+        <img src="images/spirits.jpg" data-i18n-alt="alt_spirits" alt="Scaffale di grappe e liquori selezionati" style="aspect-ratio:3/4;width:100%;object-fit:cover;filter:grayscale(.1);">
+        <img src="images/fridge.jpg" data-i18n-alt="alt_fridge" alt="Frigo con vini e bibite in vendita" style="aspect-ratio:3/4;width:100%;object-fit:cover;filter:grayscale(.1);">
       </div>
     </div>
   </section>
@@ -172,23 +182,23 @@
   <section id="recensioni" style="border-top:1px solid #222222;padding:110px 32px;">
     <div class="wrap">
       <div class="reveal" style="text-align:center;max-width:620px;margin:0 auto 64px auto;">
-        <div class="eyebrow" style="margin-bottom:18px;">Recensioni Google</div>
-        <h2 class="h2">Cosa dicono i clienti</h2>
+        <div class="eyebrow" style="margin-bottom:18px;" data-i18n="rev_eyebrow">Recensioni Google</div>
+        <h2 class="h2" data-i18n="rev_h2">Cosa dicono i clienti</h2>
       </div>
       <div class="grid-reviews reveal" style="border:1px solid #222222;">
         <div class="card">
           <div style="letter-spacing:2px;margin-bottom:16px;">★★★★★</div>
-          <p style="color:#d4d4d4;font-size:15px;font-style:italic;margin:0 0 20px 0;">"Piccola vinoteca ben gestita, con vino sfuso ed etichette interessanti. C'è anche un piccolo alimentari con prodotti asiatici, più punto di ritiro UPS e Amazon."</p>
+          <p style="color:#d4d4d4;font-size:15px;font-style:italic;margin:0 0 20px 0;" data-i18n="rev1">"Piccola vinoteca ben gestita, con vino sfuso ed etichette interessanti. C'è anche un piccolo alimentari con prodotti asiatici, più punto di ritiro UPS e Amazon."</p>
           <div style="color:#666;font-size:12px;letter-spacing:.5px;text-transform:uppercase;">wagmilano — Local Guide</div>
         </div>
         <div class="card">
           <div style="letter-spacing:2px;margin-bottom:16px;">★★★★★</div>
-          <p style="color:#d4d4d4;font-size:15px;font-style:italic;margin:0 0 20px 0;">"Danilo accoglie con la competenza di un vero esperto di vino. Consigliatissimo, sia per chi ama il vino in bottiglia sia per chi preferisce lo sfuso. Ottime anche le grappe."</p>
+          <p style="color:#d4d4d4;font-size:15px;font-style:italic;margin:0 0 20px 0;" data-i18n="rev2">"Danilo accoglie con la competenza di un vero esperto di vino. Consigliatissimo, sia per chi ama il vino in bottiglia sia per chi preferisce lo sfuso. Ottime anche le grappe."</p>
           <div style="color:#666;font-size:12px;letter-spacing:.5px;text-transform:uppercase;">Laura — Personal Chef Lake Como</div>
         </div>
         <div class="card">
           <div style="letter-spacing:2px;margin-bottom:16px;">★★★★★</div>
-          <p style="color:#d4d4d4;font-size:15px;font-style:italic;margin:0 0 20px 0;">"Un'ampia varietà di vini da tutta Italia, grappe artigianali e birre tedesche, inclusa la Hell Beer, premiata come migliore birra al mondo per tre anni consecutivi."</p>
+          <p style="color:#d4d4d4;font-size:15px;font-style:italic;margin:0 0 20px 0;" data-i18n="rev3">"Un'ampia varietà di vini da tutta Italia, grappe artigianali e birre tedesche, inclusa la Hell Beer, premiata come migliore birra al mondo per tre anni consecutivi."</p>
           <div style="color:#666;font-size:12px;letter-spacing:.5px;text-transform:uppercase;">D. Falcone — Local Guide</div>
         </div>
       </div>
@@ -197,11 +207,11 @@
 
   <section id="contatti" class="wrap reveal" style="border-top:1px solid #222222;padding:110px 32px;display:flex;flex-wrap:wrap;gap:64px;">
     <div style="flex:1 1 360px;min-width:0;">
-      <div class="eyebrow" style="margin-bottom:18px;">Vieni a trovarci</div>
-      <h2 class="h2" style="margin-bottom:30px;font-size:clamp(28px,4vw,36px);">Dove siamo</h2>
+      <div class="eyebrow" style="margin-bottom:18px;" data-i18n="contatti_eyebrow">Vieni a trovarci</div>
+      <h2 class="h2" style="margin-bottom:30px;font-size:clamp(28px,4vw,36px);" data-i18n="contatti_h2">Dove siamo</h2>
       <div style="display:flex;gap:14px;margin-bottom:22px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-        <div style="color:#d4d4d4;font-size:15px;">Via Bellinzona, 280<br>22100 Como (CO), Italia</div>
+        <div style="color:#d4d4d4;font-size:15px;" data-i18n="addr">Via Bellinzona, 280<br>22100 Como (CO), Italia</div>
       </div>
       <div style="display:flex;gap:14px;margin-bottom:22px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><path d="M4 5h3l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v3a1 1 0 0 1-1 1 16 16 0 0 1-14-14 1 1 0 0 1 1-1Z"/></svg>
@@ -209,11 +219,11 @@
       </div>
       <div style="display:flex;gap:14px;margin-bottom:34px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3" style="flex-shrink:0;margin-top:3px;" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-        <div style="color:#d4d4d4;font-size:15px;">Lun – Sab: 9:00 – 19:00<br>Domenica: chiuso</div>
+        <div style="color:#d4d4d4;font-size:15px;" data-i18n="hours">Lun – Sab: 9:00 – 19:00<br>Domenica: chiuso</div>
       </div>
-      <a href="https://maps.app.goo.gl/6pmDVZ99JMsft3jc7" class="btn btn-solid">Ottieni indicazioni</a>
+      <a href="https://maps.app.goo.gl/6pmDVZ99JMsft3jc7" class="btn btn-solid" data-i18n="cta_dir">Ottieni indicazioni</a>
     </div>
-    <div style="flex:1 1 320px;min-width:0;border:1px solid #222222;background:#0a0a0a;display:flex;align-items:center;justify-content:center;min-height:280px;color:#555;font-size:12px;text-align:center;padding:20px;letter-spacing:.5px;">
+    <div style="flex:1 1 320px;min-width:0;border:1px solid #222222;background:#0a0a0a;display:flex;align-items:center;justify-content:center;min-height:280px;color:#555;font-size:12px;text-align:center;padding:20px;letter-spacing:.5px;" data-i18n="map_placeholder">
       Mappa interattiva (Google Maps)<br>da integrare nel sito definitivo
     </div>
   </section>
@@ -221,9 +231,163 @@
   <footer style="border-top:1px solid #222222;padding:46px 32px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;">
     <div style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:20px;">Vini Italy</div>
     <div style="color:#8a8a8a;font-size:12px;text-align:center;letter-spacing:.5px;">Via Bellinzona, 280 · 22100 Como (CO) · 346 108 1465</div>
-    <div style="color:#4a4a4a;font-size:11px;letter-spacing:.5px;">Bozza di esempio — D4 Digital Studio</div>
+    <div style="color:#4a4a4a;font-size:11px;letter-spacing:.5px;" data-i18n="footer_draft">Bozza di esempio — D4 Digital Studio</div>
   </footer>
 
 </div>
+
+<script>
+var translations = {
+  it: {
+    banner: "Bozza di esempio per approvazione cliente — foto segnaposto da sostituire con scatti reali",
+    nav_chi: "Chi siamo", nav_prodotti: "Prodotti", nav_recensioni: "Recensioni", nav_contatti: "Contatti",
+    hero_eyebrow: "Enoteca &amp; specialità italiane · Como",
+    hero_line1: "Vini pregiati,", hero_line2: "grappe artigianali", hero_line3: "e sapori", hero_line4: "d'Italia a Como",
+    hero_cta1: "Scopri i prodotti", hero_cta2: "Chiama ora", hero_rating: "4.5 su Google — 19 recensioni",
+    chi_eyebrow: "Chi siamo", chi_h2: "Un'enoteca di quartiere, gestita con passione",
+    chi_p1: "Vini Italy è la piccola vinoteca di Via Bellinzona dove Danilo accoglie i clienti con la competenza di un vero esperto di vino. Un ambiente curato, con vino sfuso ed etichette interessanti da tutta Italia, pensato sia per chi ama il vino in bottiglia sia per chi preferisce il vino alla spina.",
+    chi_p2: "Accanto ai vini trovate grappe artigianali, birre tedesche pluripremiate, salumi e formaggi selezionati, oltre a un piccolo angolo alimentari con prodotti d'importazione — e un comodo punto di ritiro pacchi UPS e Amazon.",
+    stat1_label: "media su Google<br>19 recensioni", stat2_label: "anni di esperienza<br>nel settore vinicolo", stat3_label: "giorni aperti<br>lun–sab 9–19",
+    prod_eyebrow: "Cosa trovate da noi", prod_h2: "I nostri prodotti",
+    p1_title: "Vini in bottiglia", p1_desc: "Etichette selezionate da tutta Italia, per ogni gusto e occasione.",
+    p2_title: "Vino sfuso", p2_desc: "La tradizione dell'enoteca di quartiere, alla spina, al prezzo giusto.",
+    p3_title: "Grappe artigianali", p3_desc: "Distillati pregiati, scelti per i veri intenditori.",
+    p4_title: "Birre artigianali tedesche", p4_desc: "Tra cui Hell Beer, premiata 3 volte migliore birra al mondo.",
+    p5_title: "Salumi e formaggi", p5_desc: "Parmigiano e salumi italiani selezionati, confezionati.",
+    p6_title: "Punto ritiro UPS &amp; Amazon", p6_desc: "Comodo ritiro pacchi in negozio, più piccolo alimentari con prodotti anche asiatici.",
+    gal_eyebrow: "Il negozio", gal_h2: "Dai uno sguardo",
+    gal_caption: "Foto reali del negozio (dalla scheda Google) — in attesa di un servizio fotografico professionale.",
+    rev_eyebrow: "Recensioni Google", rev_h2: "Cosa dicono i clienti",
+    rev1: "«Piccola vinoteca ben gestita, con vino sfuso ed etichette interessanti. C'è anche un piccolo alimentari con prodotti asiatici, più punto di ritiro UPS e Amazon.»",
+    rev2: "«Danilo accoglie con la competenza di un vero esperto di vino. Consigliatissimo, sia per chi ama il vino in bottiglia sia per chi preferisce lo sfuso. Ottime anche le grappe.»",
+    rev3: "«Un'ampia varietà di vini da tutta Italia, grappe artigianali e birre tedesche, inclusa la Hell Beer, premiata come migliore birra al mondo per tre anni consecutivi.»",
+    contatti_eyebrow: "Vieni a trovarci", contatti_h2: "Dove siamo",
+    addr: "Via Bellinzona, 280<br>22100 Como (CO), Italia", hours: "Lun – Sab: 9:00 – 19:00<br>Domenica: chiuso",
+    cta_dir: "Ottieni indicazioni", map_placeholder: "Mappa interattiva (Google Maps)<br>da integrare nel sito definitivo",
+    footer_draft: "Bozza di esempio — D4 Digital Studio",
+    alt_fachada: "Facciata del negozio Vini Italy in Via Bellinzona 280, Como", alt_taps: "Parete degli spillatori per vino sfuso",
+    alt_spirits: "Scaffale di grappe e liquori selezionati", alt_fridge: "Frigo con vini e bibite in vendita"
+  },
+  es: {
+    banner: "Borrador de ejemplo para aprobación del cliente — fotos provisionales a reemplazar por tomas reales",
+    nav_chi: "Quiénes somos", nav_prodotti: "Productos", nav_recensioni: "Reseñas", nav_contatti: "Contacto",
+    hero_eyebrow: "Enoteca y especialidades italianas · Como",
+    hero_line1: "Vinos selectos,", hero_line2: "grappas artesanales", hero_line3: "y sabores", hero_line4: "de Italia en Como",
+    hero_cta1: "Descubre los productos", hero_cta2: "Llama ahora", hero_rating: "4.5 en Google — 19 reseñas",
+    chi_eyebrow: "Quiénes somos", chi_h2: "Una enoteca de barrio, gestionada con pasión",
+    chi_p1: "Vini Italy es la pequeña vinoteca de Via Bellinzona donde Danilo recibe a los clientes con la experiencia de un verdadero experto en vino. Un ambiente cuidado, con vino a granel y etiquetas interesantes de toda Italia, pensado tanto para quienes prefieren el vino embotellado como para quienes eligen el vino a granel.",
+    chi_p2: "Junto a los vinos encontrarás grappas artesanales, cervezas alemanas premiadas, embutidos y quesos seleccionados, además de un pequeño rincón de alimentación con productos de importación — y un cómodo punto de recogida de paquetes UPS y Amazon.",
+    stat1_label: "media en Google<br>19 reseñas", stat2_label: "años de experiencia<br>en el sector vinícola", stat3_label: "días abiertos<br>lun–sáb 9–19",
+    prod_eyebrow: "Qué encontrarás aquí", prod_h2: "Nuestros productos",
+    p1_title: "Vinos embotellados", p1_desc: "Etiquetas seleccionadas de toda Italia, para cada gusto y ocasión.",
+    p2_title: "Vino a granel", p2_desc: "La tradición de la enoteca de barrio, al grifo, al precio justo.",
+    p3_title: "Grappas artesanales", p3_desc: "Destilados selectos, elegidos para los verdaderos entendidos.",
+    p4_title: "Cervezas artesanales alemanas", p4_desc: "Entre ellas Hell Beer, premiada 3 veces como mejor cerveza del mundo.",
+    p5_title: "Embutidos y quesos", p5_desc: "Parmesano y embutidos italianos seleccionados, envasados.",
+    p6_title: "Punto de recogida UPS y Amazon", p6_desc: "Cómoda recogida de paquetes en tienda, además de una pequeña sección de alimentación con productos incluso asiáticos.",
+    gal_eyebrow: "La tienda", gal_h2: "Echa un vistazo",
+    gal_caption: "Fotos reales de la tienda (de la ficha de Google) — a la espera de una sesión fotográfica profesional.",
+    rev_eyebrow: "Reseñas de Google", rev_h2: "Lo que dicen los clientes",
+    rev1: "«Pequeña vinoteca bien gestionada, con vino a granel y etiquetas interesantes. También tiene un pequeño colmado con productos asiáticos, además de punto de recogida UPS y Amazon.»",
+    rev2: "«Danilo recibe con la competencia de un verdadero experto en vino. Muy recomendable, tanto para quienes prefieren el vino embotellado como el vino a granel. Las grappas también son excelentes.»",
+    rev3: "«Una amplia variedad de vinos de toda Italia, grappas artesanales y cervezas alemanas, incluida la Hell Beer, premiada como mejor cerveza del mundo durante tres años consecutivos.»",
+    contatti_eyebrow: "Ven a visitarnos", contatti_h2: "Dónde estamos",
+    addr: "Via Bellinzona, 280<br>22100 Como (CO), Italia", hours: "Lun – Sáb: 9:00 – 19:00<br>Domingo: cerrado",
+    cta_dir: "Cómo llegar", map_placeholder: "Mapa interactivo (Google Maps)<br>a integrar en el sitio definitivo",
+    footer_draft: "Borrador de ejemplo — D4 Digital Studio",
+    alt_fachada: "Fachada de la tienda Vini Italy en Via Bellinzona 280, Como", alt_taps: "Pared de grifos para vino a granel",
+    alt_spirits: "Estante de grappas y licores seleccionados", alt_fridge: "Nevera con vinos y bebidas a la venta"
+  },
+  en: {
+    banner: "Example draft for client approval — placeholder photos to be replaced with real shots",
+    nav_chi: "About", nav_prodotti: "Products", nav_recensioni: "Reviews", nav_contatti: "Contact",
+    hero_eyebrow: "Wine shop &amp; Italian specialties · Como",
+    hero_line1: "Fine wines,", hero_line2: "artisan grappas", hero_line3: "and flavors", hero_line4: "of Italy in Como",
+    hero_cta1: "Discover the products", hero_cta2: "Call now", hero_rating: "4.5 on Google — 19 reviews",
+    chi_eyebrow: "About us", chi_h2: "A neighborhood wine shop, run with passion",
+    chi_p1: "Vini Italy is the small wine shop on Via Bellinzona where Danilo welcomes customers with the expertise of a true wine connoisseur. A carefully curated space with bulk wine and interesting labels from all over Italy, for both bottled-wine lovers and those who prefer wine on tap.",
+    chi_p2: "Alongside the wines you'll find artisan grappas, award-winning German beers, selected cured meats and cheeses, plus a small grocery corner with imported products — and a handy UPS and Amazon parcel pickup point.",
+    stat1_label: "Google average<br>19 reviews", stat2_label: "years of experience<br>in the wine trade", stat3_label: "days open<br>Mon–Sat 9–19",
+    prod_eyebrow: "What you'll find here", prod_h2: "Our products",
+    p1_title: "Bottled wines", p1_desc: "Selected labels from all over Italy, for every taste and occasion.",
+    p2_title: "Bulk wine", p2_desc: "The tradition of the neighborhood wine shop, on tap, at a fair price.",
+    p3_title: "Artisan grappas", p3_desc: "Fine spirits, chosen for true connoisseurs.",
+    p4_title: "German craft beers", p4_desc: "Including Hell Beer, awarded best beer in the world 3 times.",
+    p5_title: "Cured meats and cheeses", p5_desc: "Selected, packaged Italian parmesan and cured meats.",
+    p6_title: "UPS &amp; Amazon pickup point", p6_desc: "Convenient in-store parcel pickup, plus a small grocery section with even Asian products.",
+    gal_eyebrow: "The shop", gal_h2: "Take a look",
+    gal_caption: "Real photos of the shop (from the Google listing) — pending a professional photo shoot.",
+    rev_eyebrow: "Google reviews", rev_h2: "What customers say",
+    rev1: "“A small, well-run wine shop, with bulk wine and interesting labels. There's also a small grocery with Asian products, plus a UPS and Amazon pickup point.”",
+    rev2: "“Danilo welcomes you with the expertise of a true wine connoisseur. Highly recommended, both for bottled wine lovers and those who prefer bulk wine. The grappas are excellent too.”",
+    rev3: "“A wide variety of wines from all over Italy, artisan grappas and German beers, including Hell Beer, awarded best beer in the world for three years running.”",
+    contatti_eyebrow: "Come visit us", contatti_h2: "Where we are",
+    addr: "Via Bellinzona, 280<br>22100 Como (CO), Italy", hours: "Mon – Sat: 9:00 – 19:00<br>Sunday: closed",
+    cta_dir: "Get directions", map_placeholder: "Interactive map (Google Maps)<br>to be added to the final site",
+    footer_draft: "Example draft — D4 Digital Studio",
+    alt_fachada: "Front of the Vini Italy shop at Via Bellinzona 280, Como", alt_taps: "Wall of taps for bulk wine",
+    alt_spirits: "Shelf of selected grappas and spirits", alt_fridge: "Fridge with wines and drinks for sale"
+  },
+  fr: {
+    banner: "Brouillon d'exemple pour validation du client — photos provisoires à remplacer par de vraies prises de vue",
+    nav_chi: "À propos", nav_prodotti: "Produits", nav_recensioni: "Avis", nav_contatti: "Contact",
+    hero_eyebrow: "Cave à vins &amp; spécialités italiennes · Côme",
+    hero_line1: "Vins fins,", hero_line2: "grappas artisanales", hero_line3: "et saveurs", hero_line4: "d'Italie à Côme",
+    hero_cta1: "Découvrir les produits", hero_cta2: "Appeler maintenant", hero_rating: "4.5 sur Google — 19 avis",
+    chi_eyebrow: "À propos de nous", chi_h2: "Une cave de quartier, gérée avec passion",
+    chi_p1: "Vini Italy est la petite cave à vins de Via Bellinzona où Danilo accueille les clients avec le savoir-faire d'un véritable expert en vin. Un espace soigné, avec du vin en vrac et des étiquettes intéressantes de toute l'Italie, pensé aussi bien pour les amateurs de vin en bouteille que pour ceux qui préfèrent le vin en vrac.",
+    chi_p2: "Aux côtés des vins, vous trouverez des grappas artisanales, des bières allemandes primées, des charcuteries et fromages sélectionnés, ainsi qu'un petit coin épicerie avec des produits d'importation — et un point de retrait de colis UPS et Amazon bien pratique.",
+    stat1_label: "moyenne Google<br>19 avis", stat2_label: "années d'expérience<br>dans le secteur viticole", stat3_label: "jours d'ouverture<br>lun–sam 9h–19h",
+    prod_eyebrow: "Ce que vous trouverez ici", prod_h2: "Nos produits",
+    p1_title: "Vins en bouteille", p1_desc: "Étiquettes sélectionnées dans toute l'Italie, pour tous les goûts et toutes les occasions.",
+    p2_title: "Vin en vrac", p2_desc: "La tradition de la cave de quartier, à la tireuse, au juste prix.",
+    p3_title: "Grappas artisanales", p3_desc: "Spiritueux raffinés, choisis pour les vrais connaisseurs.",
+    p4_title: "Bières artisanales allemandes", p4_desc: "Dont la Hell Beer, élue 3 fois meilleure bière du monde.",
+    p5_title: "Charcuterie et fromages", p5_desc: "Parmesan et charcuterie italienne sélectionnés, sous emballage.",
+    p6_title: "Point retrait UPS &amp; Amazon", p6_desc: "Retrait de colis pratique en magasin, avec en plus un petit rayon épicerie proposant aussi des produits asiatiques.",
+    gal_eyebrow: "La boutique", gal_h2: "Un aperçu",
+    gal_caption: "Photos réelles de la boutique (issues de la fiche Google) — en attente d'une séance photo professionnelle.",
+    rev_eyebrow: "Avis Google", rev_h2: "Ce que disent les clients",
+    rev1: "« Petite cave à vins bien tenue, avec du vin en vrac et des étiquettes intéressantes. Il y a aussi une petite épicerie avec des produits asiatiques, plus un point de retrait UPS et Amazon. »",
+    rev2: "« Danilo accueille avec le savoir-faire d'un véritable expert en vin. Fortement recommandé, aussi bien pour les amateurs de vin en bouteille que de vin en vrac. Les grappas sont également excellentes. »",
+    rev3: "« Une large variété de vins de toute l'Italie, des grappas artisanales et des bières allemandes, dont la Hell Beer, élue meilleure bière du monde trois années de suite. »",
+    contatti_eyebrow: "Venez nous rendre visite", contatti_h2: "Où nous trouver",
+    addr: "Via Bellinzona, 280<br>22100 Côme (CO), Italie", hours: "Lun – Sam : 9h00 – 19h00<br>Dimanche : fermé",
+    cta_dir: "Itinéraire", map_placeholder: "Carte interactive (Google Maps)<br>à intégrer dans le site définitif",
+    footer_draft: "Brouillon d'exemple — D4 Digital Studio",
+    alt_fachada: "Façade de la boutique Vini Italy, Via Bellinzona 280, Côme", alt_taps: "Mur de tireuses pour le vin en vrac",
+    alt_spirits: "Étagère de grappas et spiritueux sélectionnés", alt_fridge: "Réfrigérateur avec vins et boissons en vente"
+  }
+};
+
+function applyLang(lang) {
+  var dict = translations[lang] || translations.it;
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n');
+    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+    var key = el.getAttribute('data-i18n-alt');
+    if (dict[key] !== undefined) el.setAttribute('alt', dict[key]);
+  });
+  document.querySelectorAll('.lang-switch button').forEach(function (btn) {
+    btn.setAttribute('aria-current', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+  });
+  document.getElementById('htmlRoot').setAttribute('lang', lang);
+  try { localStorage.setItem('viniitaly_lang', lang); } catch (e) {}
+}
+
+document.querySelectorAll('.lang-switch button').forEach(function (btn) {
+  btn.addEventListener('click', function () { applyLang(btn.getAttribute('data-lang')); });
+});
+
+(function initLang() {
+  var saved = null;
+  try { saved = localStorage.getItem('viniitaly_lang'); } catch (e) {}
+  if (saved && translations[saved]) { applyLang(saved); return; }
+  var browserLang = (navigator.language || 'it').slice(0, 2).toLowerCase();
+  applyLang(translations[browserLang] ? browserLang : 'it');
+})();
+</script>
 </body>
 </html>
